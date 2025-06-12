@@ -144,10 +144,15 @@ public class GameEngine {
             return reward;
         }
 
-        return switch (bonus.impact) {
-            case multiply_reward -> reward * bonus.reward_multiplier;
-            case extra_bonus -> reward + bonus.extra;
-            case miss -> reward;
-        };
+        switch (bonus.impact) {
+            case multiply_reward:
+                return reward * bonus.reward_multiplier;
+            case extra_bonus:
+                return reward + bonus.extra;
+            case miss:
+                return reward;
+            default:
+                return reward;
+        }
     }
 }
