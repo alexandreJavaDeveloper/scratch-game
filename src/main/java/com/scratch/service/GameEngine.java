@@ -1,5 +1,6 @@
 package com.scratch.service;
 
+import com.scratch.enumeration.TypeEnum;
 import com.scratch.model.GameConfig;
 import com.scratch.model.GameResult;
 
@@ -68,7 +69,6 @@ public class GameEngine {
         final Map<String, List<String>> result = new HashMap<>();
         final Map<String, Integer> countMap = new HashMap<>();
 
-        // Count all symbols
         for (String[] row : matrix) {
             for (String symbol : row) {
                 if (!isStandardSymbol(symbol)) continue;
@@ -113,8 +113,7 @@ public class GameEngine {
     }
 
     private boolean isStandardSymbol(String symbol) {
-        String path = "\\standard\\";
-        return true;
+        return config.symbols.containsKey(symbol) && TypeEnum.standard.getValue().equals(config.symbols.get(symbol).type);
     }
 
     private double calculateReward(final Map<String, List<String>> winMap, final int betAmount) {

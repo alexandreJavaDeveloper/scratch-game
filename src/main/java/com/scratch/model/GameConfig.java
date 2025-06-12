@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 public class GameConfig {
-
     public int columns = 3;
     public int rows = 3;
     public Map<String, Symbol> symbols;
@@ -15,6 +14,7 @@ public class GameConfig {
 
     public static class Symbol {
         public double reward_multiplier;
+        public String type;
         public Double extra;
         public ImpactEnum impact;
     }
@@ -38,6 +38,7 @@ public class GameConfig {
         public double reward_multiplier;
         public String when;
         public Integer count;
+        public String group;
         public List<List<String>> covered_areas;
     }
 }
